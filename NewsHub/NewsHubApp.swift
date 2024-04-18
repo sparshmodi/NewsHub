@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct NewsHubApp: App {
+    let service = NewsApiService()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
