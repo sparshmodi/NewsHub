@@ -9,11 +9,16 @@ import SwiftUI
 
 @main
 struct NewsHubApp: App {
-    let service = NewsApiService()
+    @StateObject var homeViewModel: HomeViewModel
+    
+    init() {
+        let newsService = NewsApiService()
+        _homeViewModel = StateObject(wrappedValue: HomeViewModel(service: newsService))
+    }
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView(viewModel: homeViewModel)
         }
     }
 }

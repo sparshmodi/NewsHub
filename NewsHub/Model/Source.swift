@@ -5,8 +5,6 @@
 //  Created by Sparsh Modi on 17-04-2024.
 //
 
-import Foundation
-
 typealias Sources = [Source]
 
 struct Source: Codable {
@@ -17,9 +15,4 @@ struct Source: Codable {
     let category: String
     let language: String
     let country: String
-}
-
-struct SourcesResponse: Codable {
-    let status: String
-    let sources: Sources
 }
