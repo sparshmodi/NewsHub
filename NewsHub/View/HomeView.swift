@@ -9,19 +9,18 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
-    @State private var selectedArticle: Article?
+    @State var isSearchActive = false
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(viewModel.articles, id: \.self) {
-                    NewsItemView(
-                        article: $0,
-                        selectedArticle: $selectedArticle
-                    )
-                }
+        NavigationStack {
+            VStack(spacing: 8) {
+                SearchBarView(viewModel: viewModel.searchChildViewModel, isSearchActive: $isSearchActive)
+                HeadlinesView(viewModel: viewModel.headlinesChildViewModel)
             }
-            .padding(.horizontal, 12)
+            .navigationDestination(isPresented: $isSearchActive) {
+                SearchView(viewModel: viewModel.searchChildViewModel, isSearchActive: $isSearchActive)
+            }
+            
         }
     }
 }

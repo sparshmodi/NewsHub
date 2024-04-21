@@ -12,8 +12,7 @@ struct NewsHubApp: App {
     @StateObject var homeViewModel: HomeViewModel
     
     init() {
-        let newsService = NewsApiService()
-        _homeViewModel = StateObject(wrappedValue: HomeViewModel(service: newsService))
+        _homeViewModel = StateObject(wrappedValue: HomeViewModel())
     }
     
     var body: some Scene {

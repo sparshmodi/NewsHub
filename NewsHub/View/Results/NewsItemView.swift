@@ -14,7 +14,7 @@ struct NewsItemView: View {
     
     var body: some View {
         HStack {
-            VStack {
+            VStack(alignment: .leading) {
                 Text(article.title)
                     .font(.title3)
                     .lineLimit(2)

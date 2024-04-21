@@ -8,8 +8,10 @@
 import Foundation
 import Combine
 
-class NewsApiService: ObservableObject {
-    init() {}
+class NewsApiService {
+    static let shared = NewsApiService()
+    
+    private init() {}
     
     deinit {
         let _ = cancellables.map { $0.cancel() }
@@ -93,6 +95,8 @@ class NewsApiService: ObservableObject {
             parameters.append(.init(name: "page", value: String(page)))
         }
         
+        parameters.append(.init(name: "country", value: "us"))
+        
         fetchData(
             with: topHeadlinesUrl,
             parameters: parameters
@@ -140,7 +144,6 @@ class NewsApiService: ObservableObject {
         /// assuming the `url` from input does not have any existing parameters
         urlComponents.queryItems = parameters
         urlComponents.queryItems?.append(.init(name: "apiKey", value: NEWS_API_KEY))
-        urlComponents.queryItems?.append(.init(name: "country", value: "us"))
         
         guard let urlWithParams = urlComponents.url else {
             completion(.failure(URLError(.badURL)))
