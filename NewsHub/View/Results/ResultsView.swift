@@ -14,17 +14,28 @@ struct ResultsView<ViewModel: ObservableResultsViewModel>: View {
     
     var body: some View {
         ScrollView {
-            VStack {
-                ForEach(viewModel.articles, id: \.self) {
+            LazyVStack {
+                ForEach(viewModel.articles.filter { $0.source.name != "[Removed]" }, id: \.self) {
                     NewsItemView(
                         article: $0,
                         selectedArticle: $selectedArticle
                     )
                 }
+
+                if shouldLoadMoreItems {
+                    ProgressView()
+                        .onAppear(perform: viewModel.loadMoreItems)
+                }
             }
             .padding(.horizontal, 12)
             .animation(.easeIn, value: viewModel.articles)
         }
+    }
+    
+    private var shouldLoadMoreItems: Bool {
+        viewModel.articles.count != 0 && 
+        viewModel.totalArticles != nil &&
+        viewModel.articles.count != viewModel.totalArticles
     }
 }
 

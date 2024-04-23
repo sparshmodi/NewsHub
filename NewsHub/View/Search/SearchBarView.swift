@@ -24,6 +24,7 @@ struct SearchBarView: View {
         .autocorrectionDisabled()
         .onSubmit {
             isSearchActive = true
+            viewModel.resetState()
             viewModel.fetchSearchResults()
         }
     }

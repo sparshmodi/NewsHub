@@ -7,6 +7,23 @@
 
 import Combine
 
-protocol ObservableResultsViewModel: ObservableObject {
-    var articles: Articles { get }
+class ObservableResultsViewModel: ObservableObject {
+    @Published var articles: Articles = []
+    @Published var totalArticles: Int? = nil
+    
+    func loadMoreItems() -> Void {
+        fatalError("subclasses should override this method")
+    }
+    
+    func resetState() {
+        articles = []
+        totalArticles = nil
+    }
+    
+    let pageSize = 10
+    let service = NewsApiService.shared
+    
+    var nextPage: Int {
+        articles.count % pageSize == 0 ? articles.count / pageSize + 1 : ((articles.count - 1) / pageSize) + 2
+    }
 }

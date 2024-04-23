@@ -5,51 +5,38 @@
 //  Created by Sparsh Modi on 21-04-2024.
 //
 
-import Foundation
 import Combine
 
-class HeadlinesViewModel: ObservableResultsViewModel {
-    @Published var articles: Articles = []
-    
+final class HeadlinesViewModel: ObservableResultsViewModel {
     @Published var selectedCategory: Category? = nil {
         didSet {
+            resetState()
             fetchHeadlines()
         }
     }
     
-    init() {
-        subscribeToSubject()
-        fetchInitialResults()
+    override init() {
+        super.init()
+        fetchHeadlines()
     }
-    
-    private let service = NewsApiService.shared
-    private let articlesSubject = CurrentValueSubject<Articles, Never>([])
     
     func fetchHeadlines() {
-        service.fetchTopHeadlines(category: selectedCategory) { result in
+        service.fetchTopHeadlines(
+            category: selectedCategory,
+            pageSize: pageSize,
+            page: nextPage
+        ) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let data):
                 guard let data else { return }
-                self.articlesSubject.send(data.articles)
+                articles += data.articles
+                totalArticles = data.totalResults
             }
         }
-    }
-}
-
-private extension HeadlinesViewModel {
-    func subscribeToSubject() {
-        articlesSubject
-            .receive(on: DispatchQueue.main)
-            .assign(to: &$articles)
     }
     
-    func fetchInitialResults() {
-        service.fetchTopHeadlines { result in
-            switch result {
-            case .success(let data):
-                guard let data else { return }
-                self.articlesSubject.send(data.articles)
-            }
-        }
+    override func loadMoreItems() {
+        fetchHeadlines()
     }
 }

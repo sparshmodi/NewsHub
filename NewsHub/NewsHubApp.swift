@@ -9,11 +9,9 @@ import SwiftUI
 
 @main
 struct NewsHubApp: App {
-    @StateObject var homeViewModel: HomeViewModel
+    @StateObject var homeViewModel = HomeViewModel()
     
-    init() {
-        _homeViewModel = StateObject(wrappedValue: HomeViewModel())
-    }
+    init() {  }
     
     var body: some Scene {
         WindowGroup {
