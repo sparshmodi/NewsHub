@@ -14,6 +14,7 @@ struct SearchView: View {
     var body: some View {
         VStack {
             SearchBarView(viewModel: viewModel, isSearchActive: $isSearchActive)
+                .padding(.horizontal, 12)
             ResultsView(viewModel: viewModel)
         }
     }

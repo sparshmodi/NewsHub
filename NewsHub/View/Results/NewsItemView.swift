@@ -15,21 +15,20 @@ struct NewsItemView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
+                Text(article.source.name ?? "Unavailable")
+                    .font(.footnote)
+                    .fontWeight(.thin)
+                    .lineLimit(1)
+                
                 Text(article.title)
-                    .font(.title3)
-                    .lineLimit(2)
-    
-                if let description = article.description {
-                    Text(description)
-                        .font(.subheadline)
-                        .lineLimit(4)
-                }
+                    .font(.body)
+                    .lineLimit(4)
             }
+            Spacer() // To make the views in HStack occupy the available horizontal space
             newsImage
         }
-        .padding(12)
-        .background(Color.gray.opacity(0.1))
-        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .padding(.vertical, 6)
+        .padding(.horizontal, 12)
         .onTapGesture {
             isShowingSafariView = true
         }
@@ -51,7 +50,7 @@ struct NewsItemView: View {
                             .aspectRatio(contentMode: .fill)
                             .frame(maxWidth: 120, maxHeight: 120, alignment: .top)
                             .clipped()
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .clipShape(RoundedRectangle(cornerRadius: 5))
                     },
                     placeholder: {
                         ProgressView()
@@ -64,7 +63,7 @@ struct NewsItemView: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(maxWidth: 120, maxHeight: 120, alignment: .top)
                     .clipped()
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
             }
         }
     }

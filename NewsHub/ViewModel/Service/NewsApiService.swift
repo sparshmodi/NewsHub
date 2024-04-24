@@ -26,7 +26,7 @@ class NewsApiService {
         sortBy: SortBy? = nil,
         pageSize: Int? = nil,
         page: Int? = nil,
-        completion: @escaping (Result<EverythingResponse?, Never>) -> Void
+        completion: @escaping (Result<EverythingResponse?, Error>) -> Void
     ) {
         let everythingUrl = apiBaseUrl.appending(path: "v2/everything")
         var parameters: [URLQueryItem] = []
@@ -58,8 +58,8 @@ class NewsApiService {
             switch result {
             case .success(let data):
                 completion(.success(data))
-            case .failure:
-                completion(.success(nil))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }
@@ -70,7 +70,7 @@ class NewsApiService {
         searchPhrase: String? = nil,
         pageSize: Int? = nil,
         page: Int? = nil,
-        completion: @escaping (Result<TopHeadlinesResponse?, Never>) -> Void
+        completion: @escaping (Result<TopHeadlinesResponse?, Error>) -> Void
     ) {
         let topHeadlinesUrl = apiBaseUrl.appending(path: "v2/top-headlines")
         var parameters: [URLQueryItem] = []
@@ -104,8 +104,8 @@ class NewsApiService {
             switch result {
             case .success(let data):
                 completion(.success(data))
-            case .failure:
-                completion(.success(nil))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }

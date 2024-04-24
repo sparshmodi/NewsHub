@@ -13,15 +13,21 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 8) {
+            VStack(spacing: 10) {
+                AppLogoView()
                 SearchBarView(viewModel: viewModel.searchChildViewModel, isSearchActive: $isSearchActive)
+                    .padding(.horizontal, 12)
                 HeadlinesView(viewModel: viewModel.headlinesChildViewModel)
             }
             .navigationDestination(isPresented: $isSearchActive) {
-                SearchView(viewModel: viewModel.searchChildViewModel, isSearchActive: $isSearchActive)
+                VStack(spacing: 10) {
+                    AppLogoView()
+                    SearchView(viewModel: viewModel.searchChildViewModel, isSearchActive: $isSearchActive)
+                }
             }
-            
+            .background(Color(.systemBackground))
         }
+        .environment(\.colorScheme, .dark)
     }
 }
 

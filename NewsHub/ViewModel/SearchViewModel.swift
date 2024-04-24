@@ -22,8 +22,11 @@ final class SearchViewModel: ObservableResultsViewModel {
             switch result {
             case .success(let data):
                 guard let data else { return }
+                requestError = nil
                 articles += data.articles
                 totalArticles = data.totalResults
+            case .failure(let error):
+                requestError = error
             }
         }
     }

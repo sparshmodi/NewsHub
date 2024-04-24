@@ -10,6 +10,7 @@ import Combine
 class ObservableResultsViewModel: ObservableObject {
     @Published var articles: Articles = []
     @Published var totalArticles: Int? = nil
+    @Published var requestError: Error? = nil
     
     func loadMoreItems() -> Void {
         fatalError("subclasses should override this method")
@@ -20,7 +21,7 @@ class ObservableResultsViewModel: ObservableObject {
         totalArticles = nil
     }
     
-    let pageSize = 10
+    let pageSize = 20
     let service = NewsApiService.shared
     
     var nextPage: Int {

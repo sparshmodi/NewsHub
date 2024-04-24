@@ -20,5 +20,5 @@ struct Article: Codable, Hashable {
 
 struct ArticleSource: Codable, Hashable {
     let id: String?
-    let name: String
+    let name: String?
 }

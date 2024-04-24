@@ -10,6 +10,6 @@ import Combine
 class HomeViewModel: ObservableObject {
     init() {}
 
-    @Published var searchChildViewModel = SearchViewModel()
-    @Published var headlinesChildViewModel = HeadlinesViewModel()
+    let searchChildViewModel = SearchViewModel()
+    let headlinesChildViewModel = HeadlinesViewModel()
 }
