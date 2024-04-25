@@ -8,26 +8,57 @@
 import SwiftUI
 
 struct HomeView: View {
+    @AppStorage("appearance") private var appearance: Appearance = .system
     @ObservedObject var viewModel: HomeViewModel
+    @EnvironmentObject var overlayViewModel: OverlayViewModel
     @State var isSearchActive = false
+    @State var shouldShowSettings = false
     
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 10) {
-                AppLogoView()
-                SearchBarView(viewModel: viewModel.searchChildViewModel, isSearchActive: $isSearchActive)
-                    .padding(.horizontal, 12)
-                HeadlinesView(viewModel: viewModel.headlinesChildViewModel)
-            }
-            .navigationDestination(isPresented: $isSearchActive) {
+        ZStack {
+            NavigationStack {
                 VStack(spacing: 10) {
-                    AppLogoView()
+                    HStack {
+                        AppLogoView()
+                        Spacer()
+                        SettingsIconView(shouldShowSettings: $shouldShowSettings)
+                    }
+                    .padding(.top, 4)
+                    .padding(.horizontal, 12)
+                    
+                    SearchBarView(viewModel: viewModel.searchChildViewModel, isSearchActive: $isSearchActive)
+                        .padding(.horizontal, 12)
+                    HeadlinesView(viewModel: viewModel.headlinesChildViewModel)
+                }
+                .navigationDestination(isPresented: $isSearchActive) {
                     SearchView(viewModel: viewModel.searchChildViewModel, isSearchActive: $isSearchActive)
+                        .navigationTitle("Search")
+                        .navigationBarTitleDisplayMode(.inline)
+                }
+                .navigationDestination(isPresented: $shouldShowSettings) {
+                    SettingsView()
+                        .navigationTitle("Settings")
+                        .navigationBarTitleDisplayMode(.inline)
                 }
             }
-            .background(Color(.systemBackground))
+            .preferredColorScheme(appearance.colorScheme)
+            .blur(radius: overlayViewModel.selectedArticle != nil ? 15 : 0)
+            
+            Group {
+                if let article = overlayViewModel.selectedArticle {
+                    ZStack {
+                        Color.black.opacity(0.0001)
+                            .edgesIgnoringSafeArea(.all)
+                            .onTapGesture {
+                                overlayViewModel.selectedArticle = nil
+                            }
+                        NewsOverlayView(article: article)
+                            .padding(20)
+                            .animation(.easeIn, value: overlayViewModel.selectedArticle)
+                    }
+                }
+            }
         }
-        .environment(\.colorScheme, .dark)
     }
 }
 

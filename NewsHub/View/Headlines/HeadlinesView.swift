@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Combine
 
 struct HeadlinesView: View {
     @ObservedObject var viewModel: HeadlinesViewModel
@@ -15,15 +14,21 @@ struct HeadlinesView: View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(categories, id: \.self) { category in
-                        Text(category.toString().capitalized)
-                            .font(.title3)
-                            .padding(6)
-                            .background(viewModel.selectedCategory == category ? Color.gray.opacity(0.6) : Color.gray.opacity(0.1))
-                            .clipShape(RoundedRectangle(cornerRadius: 14))
-                            .onTapGesture {
-                                viewModel.selectedCategory = viewModel.selectedCategory == category ? nil : category
+                    ForEach(HeadlinesViewModel.categories, id: \.self) { category in
+                        Button(
+                            action: {
+                                if viewModel.selectedCategory != category {
+                                    viewModel.selectedCategory = category
+                                }
                             }
+                        ) {
+                            Text(category.toString().capitalized)
+                                .font(.title3)
+                                .padding(6)
+                                .background(viewModel.selectedCategory == category ? Color.gray.opacity(0.6) : Color.gray.opacity(0.1))
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                        }
+                        .foregroundStyle(.primary)
                     }
                 }
                 .padding(.horizontal, 12)
@@ -31,8 +36,6 @@ struct HeadlinesView: View {
             ResultsView(viewModel: viewModel)
         }
     }
-    
-    private let categories: [Category] = [.business, .entertainment, .general, .health, .science, .sports, .technology]
 }
 
 //#Preview {

@@ -16,6 +16,7 @@ struct NewsHubApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView(viewModel: homeViewModel)
+                .environmentObject(OverlayViewModel())
         }
     }
 }

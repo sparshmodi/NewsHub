@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2574A3402BD9D8C800A4F522 /* OverlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2574A33F2BD9D8C800A4F522 /* OverlayViewModel.swift */; };
 		257D1D1F2BD1DF5A00EC71FB /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D1D1E2BD1DF5A00EC71FB /* Article.swift */; };
 		257D1D212BD1E6A100EC71FB /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D1D202BD1E6A100EC71FB /* Secrets.swift */; };
 		257D1D232BD1E9F400EC71FB /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D1D222BD1E9F400EC71FB /* Enums.swift */; };
@@ -24,6 +25,8 @@
 		257D1D422BD5CB7E00EC71FB /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D1D412BD5CB7E00EC71FB /* SearchView.swift */; };
 		257D1D442BD7599100EC71FB /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D1D432BD7599100EC71FB /* ErrorView.swift */; };
 		257D1D462BD898A600EC71FB /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D1D452BD898A600EC71FB /* AppLogoView.swift */; };
+		257D1D492BD8A07C00EC71FB /* SettingsIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D1D482BD8A07C00EC71FB /* SettingsIconView.swift */; };
+		257D1D4B2BD8A08E00EC71FB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D1D4A2BD8A08E00EC71FB /* SettingsView.swift */; };
 		2583E9B82BD0ABDB003D8BB3 /* NewsHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583E9B72BD0ABDB003D8BB3 /* NewsHubApp.swift */; };
 		2583E9BA2BD0ABDB003D8BB3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583E9B92BD0ABDB003D8BB3 /* HomeView.swift */; };
 		2583E9BC2BD0ABDD003D8BB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2583E9BB2BD0ABDD003D8BB3 /* Assets.xcassets */; };
@@ -53,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2574A33F2BD9D8C800A4F522 /* OverlayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewModel.swift; sourceTree = "<group>"; };
 		257D1D1E2BD1DF5A00EC71FB /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		257D1D202BD1E6A100EC71FB /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		257D1D222BD1E9F400EC71FB /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 		257D1D412BD5CB7E00EC71FB /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		257D1D432BD7599100EC71FB /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		257D1D452BD898A600EC71FB /* AppLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
+		257D1D482BD8A07C00EC71FB /* SettingsIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsIconView.swift; sourceTree = "<group>"; };
+		257D1D4A2BD8A08E00EC71FB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2583E9B42BD0ABDB003D8BB3 /* NewsHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2583E9B72BD0ABDB003D8BB3 /* NewsHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHubApp.swift; sourceTree = "<group>"; };
 		2583E9B92BD0ABDB003D8BB3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -136,6 +142,15 @@
 				257D1D362BD5B01A00EC71FB /* HeadlinesView.swift */,
 			);
 			path = Headlines;
+			sourceTree = "<group>";
+		};
+		257D1D472BD8A06D00EC71FB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				257D1D482BD8A07C00EC71FB /* SettingsIconView.swift */,
+				257D1D4A2BD8A08E00EC71FB /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		2583E9AB2BD0ABDB003D8BB3 = {
@@ -211,6 +226,7 @@
 		2583E9E22BD0ACC4003D8BB3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				257D1D472BD8A06D00EC71FB /* Settings */,
 				257D1D3E2BD5C38300EC71FB /* Headlines */,
 				257D1D3D2BD5C37D00EC71FB /* Search */,
 				257D1D3A2BD5B04200EC71FB /* Results */,
@@ -228,6 +244,7 @@
 				257D1D302BD5AC8D00EC71FB /* SearchViewModel.swift */,
 				257D1D322BD5AFD000EC71FB /* HeadlinesViewModel.swift */,
 				257D1D3B2BD5B07800EC71FB /* ObservableResultsViewModel.swift */,
+				2574A33F2BD9D8C800A4F522 /* OverlayViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -371,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				257D1D252BD1EF1100EC71FB /* Response.swift in Sources */,
+				257D1D4B2BD8A08E00EC71FB /* SettingsView.swift in Sources */,
 				257D1D422BD5CB7E00EC71FB /* SearchView.swift in Sources */,
 				257D1D332BD5AFD000EC71FB /* HeadlinesViewModel.swift in Sources */,
 				257D1D2B2BD416AC00EC71FB /* SafariView.swift in Sources */,
@@ -384,6 +402,7 @@
 				257D1D3C2BD5B07800EC71FB /* ObservableResultsViewModel.swift in Sources */,
 				257D1D312BD5AC8D00EC71FB /* SearchViewModel.swift in Sources */,
 				2583E9E62BD0ADBB003D8BB3 /* NewsApiService.swift in Sources */,
+				257D1D492BD8A07C00EC71FB /* SettingsIconView.swift in Sources */,
 				257D1D462BD898A600EC71FB /* AppLogoView.swift in Sources */,
 				257D1D2F2BD4627900EC71FB /* SearchBarView.swift in Sources */,
 				257D1D442BD7599100EC71FB /* ErrorView.swift in Sources */,
@@ -391,6 +410,7 @@
 				257D1D1F2BD1DF5A00EC71FB /* Article.swift in Sources */,
 				257D1D392BD5B03300EC71FB /* ResultsView.swift in Sources */,
 				257D1D232BD1E9F400EC71FB /* Enums.swift in Sources */,
+				2574A3402BD9D8C800A4F522 /* OverlayViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,13 +577,14 @@
 				DEVELOPMENT_TEAM = 9HMP4WL327;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = NewsHub;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -588,13 +609,14 @@
 				DEVELOPMENT_TEAM = 9HMP4WL327;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = NewsHub;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

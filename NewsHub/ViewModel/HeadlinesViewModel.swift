@@ -15,9 +15,11 @@ final class HeadlinesViewModel: ObservableResultsViewModel {
         }
     }
     
+    static let categories: [Category] = [.general, .business, .entertainment, .health, .science, .sports, .technology]
+    
     override init() {
         super.init()
-        fetchHeadlines()
+        selectedCategory = .general
     }
     
     func fetchHeadlines() {

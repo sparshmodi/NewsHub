@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewsItemView: View {
     let article: Article
-    @Binding var selectedArticle: Article?
+    @EnvironmentObject var overlayViewModel: OverlayViewModel
     @State private var isShowingSafariView = false
     
     var body: some View {
@@ -31,6 +31,9 @@ struct NewsItemView: View {
         .padding(.horizontal, 12)
         .onTapGesture {
             isShowingSafariView = true
+        }
+        .onLongPressGesture {
+            overlayViewModel.selectedArticle = article
         }
         .sheet(isPresented: $isShowingSafariView) {
             SafariView(url: URL(string: article.url)!)

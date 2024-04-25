@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct ResultsView<ViewModel: ObservableResultsViewModel>: View {
-    @ObservedObject var viewModel: ViewModel
-    @State private var selectedArticle: Article?
+struct ResultsView: View {
+    @ObservedObject var viewModel: ObservableResultsViewModel
     
     var body: some View {
         viewModel.requestError == nil ?
@@ -17,10 +16,7 @@ struct ResultsView<ViewModel: ObservableResultsViewModel>: View {
             ScrollView {
                 LazyVStack {
                     ForEach(viewModel.articles.filter { $0.source.name != "[Removed]" }, id: \.self) {
-                        NewsItemView(
-                            article: $0,
-                            selectedArticle: $selectedArticle
-                        )
+                        NewsItemView(article: $0)
                         Rectangle()
                             .fill(Color(.systemFill))
                             .frame(height: 1)

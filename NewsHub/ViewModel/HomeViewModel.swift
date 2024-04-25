@@ -7,7 +7,7 @@
 
 import Combine
 
-class HomeViewModel: ObservableObject {
+final class HomeViewModel: ObservableObject {
     init() {}
 
     let searchChildViewModel = SearchViewModel()

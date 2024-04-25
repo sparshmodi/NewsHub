@@ -15,7 +15,6 @@ struct AppLogoView: View {
                 .fontWeight(.bold)
             Spacer()
         }
-        .padding(.horizontal, 12)
     }
 }
 

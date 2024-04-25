@@ -5,6 +5,8 @@
 //  Created by Sparsh Modi on 18-04-2024.
 //
 
+import SwiftUI
+
 enum Category {
     case business
     case entertainment
@@ -47,6 +49,23 @@ enum SortBy {
             return "relevancy"
         case .publishedAt:
             return "publishedAt"
+        }
+    }
+}
+
+enum Appearance: String, CaseIterable {
+    case system = "System"
+    case light = "Light"
+    case dark = "Dark"
+    
+    var colorScheme: ColorScheme? {
+        switch self {
+        case .system:
+            nil
+        case .light:
+            .light
+        case .dark:
+            .dark
         }
     }
 }

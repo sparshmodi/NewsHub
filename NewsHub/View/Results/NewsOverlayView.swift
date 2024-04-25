@@ -8,29 +8,26 @@
 import SwiftUI
 
 struct NewsOverlayView: View {
-    let article: Article?
+    let article: Article
 
     var body: some View {
-        if let article {
-            VStack(alignment: .leading, spacing: 2) {
-                Text(article.title)
-                    .font(.title2)
-                if let description = article.description {
-                    Text(description)
-                }
-                if let content = article.content {
-                    Text(content)
-                        .font(.caption)
-                }
+        VStack(alignment: .leading, spacing: 6) {
+            Text(article.title)
+                .font(.title)
+                .lineLimit(3)
+            if let description = article.description {
+                Text(description)
+                    .lineLimit(10)
             }
-            .frame(maxHeight: 320)
-            .background(Color.white)
-            .padding(20)
-        } else {
-            ProgressView()
-                .frame(width: 300, height: 200)
-                .background(Color.white.opacity(0.5))
+            if let content = article.content {
+                Text(content)
+                    .font(.caption)
+                    .lineLimit(12)
+            }
         }
+        .padding(20)
+        .background(.background)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
 
