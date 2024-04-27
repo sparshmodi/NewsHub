@@ -11,7 +11,7 @@ final class SearchViewModel: ObservableResultsViewModel {
     @Published var searchText = ""
     
     func fetchSearchResults() {
-        guard searchText != "" else { return }
+        guard !searchText.isEmpty else { return }
         
         service.fetchEverything(
             searchPhrase: searchText,
@@ -22,11 +22,9 @@ final class SearchViewModel: ObservableResultsViewModel {
             switch result {
             case .success(let data):
                 guard let data else { return }
-                requestError = nil
-                articles += data.articles
-                totalArticles = data.totalResults
+                setArticles(data.articles, count: data.totalResults)
             case .failure(let error):
-                requestError = error
+                setError(error)
             }
         }
     }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchBarView: View {
     @ObservedObject var viewModel: SearchViewModel
+    @FocusState private var isFocused: Bool
     @Binding var isSearchActive: Bool
     
     var body: some View {
@@ -26,6 +27,21 @@ struct SearchBarView: View {
             isSearchActive = true
             viewModel.resetState()
             viewModel.fetchSearchResults()
+        }
+        .focused($isFocused)
+        .overlay {
+            if isFocused && !viewModel.searchText.isEmpty {
+                HStack {
+                    Spacer()
+                    Button {
+                        viewModel.searchText = ""
+                    } label: {
+                        Image(systemName: "multiply.circle.fill")
+                            .foregroundColor(.gray)
+                            .padding(.trailing, 10)
+                    }
+                }
+            }
         }
     }
 }

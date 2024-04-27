@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2536B8102BDC81A300D45161 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2536B80F2BDC81A300D45161 /* EmptyView.swift */; };
 		2574A3402BD9D8C800A4F522 /* OverlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2574A33F2BD9D8C800A4F522 /* OverlayViewModel.swift */; };
 		257D1D1F2BD1DF5A00EC71FB /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D1D1E2BD1DF5A00EC71FB /* Article.swift */; };
 		257D1D212BD1E6A100EC71FB /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D1D202BD1E6A100EC71FB /* Secrets.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2536B80F2BDC81A300D45161 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		2574A33F2BD9D8C800A4F522 /* OverlayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewModel.swift; sourceTree = "<group>"; };
 		257D1D1E2BD1DF5A00EC71FB /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		257D1D202BD1E6A100EC71FB /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				257D1D2A2BD416AC00EC71FB /* SafariView.swift */,
 				257D1D432BD7599100EC71FB /* ErrorView.swift */,
 				257D1D2C2BD41B7800EC71FB /* NewsOverlayView.swift */,
+				2536B80F2BDC81A300D45161 /* EmptyView.swift */,
 			);
 			path = Results;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				257D1D442BD7599100EC71FB /* ErrorView.swift in Sources */,
 				257D1D2D2BD41B7800EC71FB /* NewsOverlayView.swift in Sources */,
 				257D1D1F2BD1DF5A00EC71FB /* Article.swift in Sources */,
+				2536B8102BDC81A300D45161 /* EmptyView.swift in Sources */,
 				257D1D392BD5B03300EC71FB /* ResultsView.swift in Sources */,
 				257D1D232BD1E9F400EC71FB /* Enums.swift in Sources */,
 				2574A3402BD9D8C800A4F522 /* OverlayViewModel.swift in Sources */,
@@ -584,7 +588,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -616,7 +620,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

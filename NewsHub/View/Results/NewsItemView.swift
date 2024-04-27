@@ -10,7 +10,7 @@ import SwiftUI
 struct NewsItemView: View {
     let article: Article
     @EnvironmentObject var overlayViewModel: OverlayViewModel
-    @State private var isShowingSafariView = false
+    @Binding var tappedArticle: Article?
     
     var body: some View {
         HStack {
@@ -30,13 +30,10 @@ struct NewsItemView: View {
         .padding(.vertical, 6)
         .padding(.horizontal, 12)
         .onTapGesture {
-            isShowingSafariView = true
+            tappedArticle = article
         }
         .onLongPressGesture {
-            overlayViewModel.selectedArticle = article
-        }
-        .sheet(isPresented: $isShowingSafariView) {
-            SafariView(url: URL(string: article.url)!)
+            overlayViewModel.longPressedArticle = article
         }
     }
     
@@ -51,20 +48,20 @@ struct NewsItemView: View {
                         $0
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(maxWidth: 120, maxHeight: 120, alignment: .top)
+                            .frame(maxWidth: 120, alignment: .top)
                             .clipped()
                             .clipShape(RoundedRectangle(cornerRadius: 5))
                     },
                     placeholder: {
                         ProgressView()
-                            .frame(maxWidth: 120, maxHeight: 120)
+                            .frame(maxWidth: 120)
                     }
                 )
             } else {
-                Image("defaultNewsImage")
+                Image("DefaultNewsImage")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: 120, maxHeight: 120, alignment: .top)
+                    .frame(maxWidth: 120, alignment: .top)
                     .clipped()
                     .clipShape(RoundedRectangle(cornerRadius: 5))
             }

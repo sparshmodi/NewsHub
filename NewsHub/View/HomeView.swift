@@ -23,7 +23,7 @@ struct HomeView: View {
                         Spacer()
                         SettingsIconView(shouldShowSettings: $shouldShowSettings)
                     }
-                    .padding(.top, 4)
+                    .padding(.top, 8)
                     .padding(.horizontal, 12)
                     
                     SearchBarView(viewModel: viewModel.searchChildViewModel, isSearchActive: $isSearchActive)
@@ -42,26 +42,22 @@ struct HomeView: View {
                 }
             }
             .preferredColorScheme(appearance.colorScheme)
-            .blur(radius: overlayViewModel.selectedArticle != nil ? 15 : 0)
+            .blur(radius: overlayViewModel.longPressedArticle != nil ? 15 : 0)
             
             Group {
-                if let article = overlayViewModel.selectedArticle {
+                if let article = overlayViewModel.longPressedArticle {
                     ZStack {
                         Color.black.opacity(0.0001)
                             .edgesIgnoringSafeArea(.all)
                             .onTapGesture {
-                                overlayViewModel.selectedArticle = nil
+                                overlayViewModel.longPressedArticle = nil
                             }
                         NewsOverlayView(article: article)
                             .padding(20)
-                            .animation(.easeIn, value: overlayViewModel.selectedArticle)
+                            .animation(.easeIn, value: overlayViewModel.longPressedArticle)
                     }
                 }
             }
         }
     }
 }
-
-//#Preview {
-//    ContentView()
-//}

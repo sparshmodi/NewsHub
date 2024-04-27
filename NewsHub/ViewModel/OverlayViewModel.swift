@@ -8,5 +8,5 @@
 import Foundation
 
 final class OverlayViewModel: ObservableObject {
-    @Published var selectedArticle: Article? = nil
+    @Published var longPressedArticle: Article? = nil
 }
