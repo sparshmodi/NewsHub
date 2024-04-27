@@ -15,7 +15,7 @@ final class HeadlinesViewModel: ObservableResultsViewModel {
         }
     }
     
-    static let categories: [Category] = [.general, .business, .entertainment, .health, .science, .sports, .technology]
+    static let categories: [Category] = [.general, .business, .entertainment, .sports, .science, .technology, .health]
     
     override init() {
         super.init()

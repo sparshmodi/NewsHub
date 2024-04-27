@@ -49,12 +49,15 @@ struct ResultsView: View {
         .sheet(item: $tappedArticle) { article in
             SafariView(url: URL(string: article.url)!)
         }
+        .sensoryFeedback(.impact(weight: .light), trigger: tappedArticle) { old, _ in
+            old == nil
+        }
     }
     
     var emptyView: some View {
         VStack {
             Spacer()
-            ErrorView()
+            EmptyView()
             Spacer()
         }
     }
@@ -62,7 +65,7 @@ struct ResultsView: View {
     var errorView: some View {
         VStack {
             Spacer()
-            ErrorView()
+            ErrorView(error: viewModel.requestError)
             Spacer()
         }
     }

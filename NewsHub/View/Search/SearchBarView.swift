@@ -35,10 +35,11 @@ struct SearchBarView: View {
                     Spacer()
                     Button {
                         viewModel.searchText = ""
+                        isFocused = false
                     } label: {
                         Image(systemName: "multiply.circle.fill")
                             .foregroundColor(.gray)
-                            .padding(.trailing, 10)
+                            .padding(10)
                     }
                 }
             }

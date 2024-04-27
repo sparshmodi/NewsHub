@@ -53,8 +53,12 @@ struct NewsItemView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 5))
                     },
                     placeholder: {
-                        ProgressView()
-                            .frame(maxWidth: 120)
+                        ZStack {
+                            Color.gray.opacity(0.1)
+                            ProgressView()
+                        }
+                        .frame(maxWidth: 120, alignment: .top)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
                     }
                 )
             } else {

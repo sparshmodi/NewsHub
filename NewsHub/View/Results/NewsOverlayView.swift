@@ -31,20 +31,21 @@ struct NewsOverlayView: View {
     }
 }
 
-#Preview {
-    NewsOverlayView(
-        article: .init(
-            source:
-                    .init(
-                        id: nil,
-                        name: "BBC"
-                    ),
-            author: nil,
-            title: "Test TitleTest TitleTest TitleTest TitleTest TitleTest TitleTest Title",
-            description: "Test DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest Description",
-            url: "try",
-            urlToImage: nil,
-            publishedAt: "asdf",
-            content: "TestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContent")
-    )
-}
+//#Preview {
+//    NewsOverlayView(
+//        article: .init(
+//            id: UUID(),
+//            source:
+//                    .init(
+//                        id: nil,
+//                        name: "BBC"
+//                    ),
+//            author: nil,
+//            title: "Test TitleTest TitleTest TitleTest TitleTest TitleTest TitleTest Title",
+//            description: "Test DescriptionTest DescriptionTest DescriptionTest DescriptionTest DescriptionTest Description",
+//            url: "try",
+//            urlToImage: nil,
+//            publishedAt: "asdf",
+//            content: "TestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContentTestContent")
+//    )
+//}

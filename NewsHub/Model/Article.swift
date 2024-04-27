@@ -20,7 +20,7 @@ struct Article: Codable, Hashable, Identifiable {
     let publishedAt: String?
     let content: String?
     
-    init(from decoder: any Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = UUID()
         self.source = try container.decode(ArticleSource.self, forKey: .source)

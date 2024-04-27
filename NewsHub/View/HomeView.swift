@@ -41,23 +41,24 @@ struct HomeView: View {
                         .navigationBarTitleDisplayMode(.inline)
                 }
             }
-            .preferredColorScheme(appearance.colorScheme)
             .blur(radius: overlayViewModel.longPressedArticle != nil ? 15 : 0)
-            
-            Group {
-                if let article = overlayViewModel.longPressedArticle {
-                    ZStack {
-                        Color.black.opacity(0.0001)
-                            .edgesIgnoringSafeArea(.all)
-                            .onTapGesture {
-                                overlayViewModel.longPressedArticle = nil
-                            }
-                        NewsOverlayView(article: article)
-                            .padding(20)
-                            .animation(.easeIn, value: overlayViewModel.longPressedArticle)
-                    }
+            .sensoryFeedback(.impact(weight: .heavy), trigger: overlayViewModel.longPressedArticle) { old, _ in
+                old == nil                
+            }
+                        
+            if let article = overlayViewModel.longPressedArticle {
+                ZStack {
+                    Color.black.opacity(0.0001)
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            overlayViewModel.longPressedArticle = nil
+                        }
+                    NewsOverlayView(article: article)
+                        .padding(20)
+                        .animation(.easeIn, value: overlayViewModel.longPressedArticle)
                 }
             }
         }
+        .preferredColorScheme(appearance.colorScheme)
     }
 }

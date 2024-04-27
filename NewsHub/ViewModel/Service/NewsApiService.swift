@@ -51,6 +51,8 @@ class NewsApiService {
             parameters.append(.init(name: "page", value: String(page)))
         }
         
+        parameters.append(.init(name: "language", value: "en"))
+        
         fetchData(
             with: everythingUrl,
             parameters: parameters
