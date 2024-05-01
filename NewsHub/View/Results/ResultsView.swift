@@ -12,8 +12,10 @@ struct ResultsView: View {
     @State var tappedArticle: Article? = nil
     
     var body: some View {
-        if let _ = viewModel.requestError {
-            errorView
+        if viewModel.isLoading {
+            loadingView
+        } else if let error = viewModel.requestError {
+            errorView(for: error)
         } else if viewModel.articles.filter({ $0.source.name != "[Removed]" }).count == 0 {
             emptyView
         } else {
@@ -31,7 +33,7 @@ struct ResultsView: View {
     var scrollableNewsItemsView: some View {
         ScrollView {
             LazyVStack {
-                ForEach(viewModel.articles.filter { $0.source.name != "[Removed]" }, id: \.self) {
+                ForEach(viewModel.articles.filter { $0.source.name != "[Removed]" }) {
                     NewsItemView(article: $0, tappedArticle: $tappedArticle)
                     Rectangle()
                         .fill(Color(.systemFill))
@@ -62,10 +64,18 @@ struct ResultsView: View {
         }
     }
     
-    var errorView: some View {
+    func errorView(for error: Error) -> some View {
         VStack {
             Spacer()
-            ErrorView(error: viewModel.requestError)
+            ErrorView(error: error)
+            Spacer()
+        }
+    }
+    
+    var loadingView: some View {
+        VStack {
+            Spacer()
+            ProgressView()
             Spacer()
         }
     }

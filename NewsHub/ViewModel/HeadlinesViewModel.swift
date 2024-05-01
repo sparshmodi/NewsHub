@@ -6,20 +6,16 @@
 //
 
 import Combine
+import Foundation
 
 final class HeadlinesViewModel: ObservableResultsViewModel {
-    @Published var selectedCategory: Category? = nil {
-        didSet {
-            resetState()
-            fetchHeadlines()
-        }
-    }
+    @Published var selectedCategory: Category? = .general
     
     static let categories: [Category] = [.general, .business, .entertainment, .sports, .science, .technology, .health]
     
     override init() {
         super.init()
-        selectedCategory = .general
+        fetchHeadlines()
     }
     
     func fetchHeadlines() {

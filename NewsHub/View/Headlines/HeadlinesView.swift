@@ -19,6 +19,8 @@ struct HeadlinesView: View {
                             action: {
                                 if viewModel.selectedCategory != category {
                                     viewModel.selectedCategory = category
+                                    viewModel.resetState()
+                                    viewModel.fetchHeadlines()
                                 }
                             }
                         ) {

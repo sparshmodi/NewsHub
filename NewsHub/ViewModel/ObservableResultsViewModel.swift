@@ -12,6 +12,7 @@ class ObservableResultsViewModel: ObservableObject {
     @Published var articles: Articles = []
     @Published var totalArticles: Int? = nil
     @Published var requestError: Error? = nil
+    @Published var isLoading: Bool = true
     
     var nextPage: Int {
         articles.count % pageSize == 0 ? articles.count / pageSize + 1 : articles.count / pageSize + 2
@@ -25,14 +26,14 @@ class ObservableResultsViewModel: ObservableObject {
     }
     
     func resetState() {
-        DispatchQueue.main.async {
-            self.articles = []
-            self.totalArticles = nil
-        }
+        isLoading = true
+        articles = []
+        totalArticles = nil
     }
     
     func setArticles(_ articles: Articles, count: Int?) {
         DispatchQueue.main.async {
+            self.isLoading = false
             self.requestError = nil
             self.articles += articles
             self.totalArticles = count
@@ -41,7 +42,10 @@ class ObservableResultsViewModel: ObservableObject {
     
     func setError(_ error: Error) {
         DispatchQueue.main.async {
+            self.isLoading = false
             self.requestError = error
+            self.articles = []
+            self.totalArticles = nil
         }
     }
 }

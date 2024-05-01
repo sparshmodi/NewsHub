@@ -11,7 +11,7 @@ struct HomeView: View {
     @AppStorage("appearance") private var appearance: Appearance = .system
     @ObservedObject var viewModel: HomeViewModel
     @EnvironmentObject var overlayViewModel: OverlayViewModel
-    @State var isSearchActive = false
+    @State var shouldShowSearchResults = false
     @State var shouldShowSettings = false
     
     var body: some View {
@@ -26,12 +26,12 @@ struct HomeView: View {
                     .padding(.top, 8)
                     .padding(.horizontal, 12)
                     
-                    SearchBarView(viewModel: viewModel.searchChildViewModel, isSearchActive: $isSearchActive)
+                    SearchBarView(viewModel: viewModel.searchChildViewModel, shouldShowSearchResults: $shouldShowSearchResults)
                         .padding(.horizontal, 12)
                     HeadlinesView(viewModel: viewModel.headlinesChildViewModel)
                 }
-                .navigationDestination(isPresented: $isSearchActive) {
-                    SearchView(viewModel: viewModel.searchChildViewModel, isSearchActive: $isSearchActive)
+                .navigationDestination(isPresented: $shouldShowSearchResults) {
+                    SearchView(viewModel: viewModel.searchChildViewModel, shouldShowSearchResults: $shouldShowSearchResults)
                         .navigationTitle("Search")
                         .navigationBarTitleDisplayMode(.inline)
                 }

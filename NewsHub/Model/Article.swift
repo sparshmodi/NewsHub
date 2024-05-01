@@ -9,7 +9,7 @@ import Foundation
 
 typealias Articles = [Article]
 
-struct Article: Codable, Hashable, Identifiable {
+struct Article: Codable, Identifiable, Equatable {
     let id: UUID
     let source: ArticleSource
     let author: String?
@@ -32,9 +32,16 @@ struct Article: Codable, Hashable, Identifiable {
         self.publishedAt = try container.decodeIfPresent(String.self, forKey: .publishedAt)
         self.content = try container.decodeIfPresent(String.self, forKey: .content)
     }
+    
+    var titleToDisplay: String {
+        guard let sourceIndex = title.lastIndex(of: "-") else {
+            return title
+        }
+        return .init(title.prefix(upTo: title.index(before: sourceIndex)))
+    }
 }
 
-struct ArticleSource: Codable, Hashable {
+struct ArticleSource: Codable, Equatable  {
     let id: String?
     let name: String?
 }

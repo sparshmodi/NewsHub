@@ -218,10 +218,10 @@
 		2583E9E12BD0ACBA003D8BB3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2583E9E72BD0AF74003D8BB3 /* Source.swift */,
 				257D1D1E2BD1DF5A00EC71FB /* Article.swift */,
 				257D1D222BD1E9F400EC71FB /* Enums.swift */,
 				257D1D242BD1EF1100EC71FB /* Response.swift */,
+				2583E9E72BD0AF74003D8BB3 /* Source.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

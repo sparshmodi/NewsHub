@@ -9,11 +9,11 @@ import SwiftUI
 
 struct SearchView: View {
     @ObservedObject var viewModel: SearchViewModel
-    @Binding var isSearchActive: Bool
+    @Binding var shouldShowSearchResults: Bool
     
     var body: some View {
         VStack {
-            SearchBarView(viewModel: viewModel, isSearchActive: $isSearchActive)
+            SearchBarView(viewModel: viewModel, shouldShowSearchResults: $shouldShowSearchResults)
                 .padding(.horizontal, 12)
             ResultsView(viewModel: viewModel)
         }

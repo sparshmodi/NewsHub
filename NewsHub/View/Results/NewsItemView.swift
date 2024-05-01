@@ -20,7 +20,7 @@ struct NewsItemView: View {
                     .fontWeight(.thin)
                     .lineLimit(1)
                 
-                Text(article.title)
+                Text(article.titleToDisplay)
                     .font(.body)
                     .lineLimit(4)
             }
@@ -47,29 +47,25 @@ struct NewsItemView: View {
                     content: {
                         $0
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(maxWidth: 120, alignment: .top)
+                            .scaledToFill()
                             .clipped()
-                            .clipShape(RoundedRectangle(cornerRadius: 5))
                     },
                     placeholder: {
                         ZStack {
                             Color.gray.opacity(0.1)
                             ProgressView()
                         }
-                        .frame(maxWidth: 120, alignment: .top)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
                     }
                 )
             } else {
                 Image("DefaultNewsImage")
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: 120, alignment: .top)
+                    .scaledToFill()
                     .clipped()
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
             }
         }
+        .frame(maxWidth: 120, alignment: .top)
+        .clipShape(RoundedRectangle(cornerRadius: 5))
     }
 }
 

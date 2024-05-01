@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchBarView: View {
     @ObservedObject var viewModel: SearchViewModel
     @FocusState private var isFocused: Bool
-    @Binding var isSearchActive: Bool
+    @Binding var shouldShowSearchResults: Bool
     
     var body: some View {
         TextField(
@@ -24,7 +24,7 @@ struct SearchBarView: View {
         .textInputAutocapitalization(.never)
         .autocorrectionDisabled()
         .onSubmit {
-            isSearchActive = true
+            shouldShowSearchResults = true
             viewModel.resetState()
             viewModel.fetchSearchResults()
         }
