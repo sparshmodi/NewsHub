@@ -5,8 +5,6 @@
 //  Created by Sparsh Modi on 17-04-2024.
 //
 
-typealias Sources = [Source]
-
 struct Source: Codable {
     let id: String
     let name: String

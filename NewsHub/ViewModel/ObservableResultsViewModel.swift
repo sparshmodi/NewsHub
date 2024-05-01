@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 class ObservableResultsViewModel: ObservableObject {
-    @Published var articles: Articles = []
+    @Published var articles: [Article] = []
     @Published var totalArticles: Int? = nil
     @Published var requestError: Error? = nil
     @Published var isLoading: Bool = true
@@ -31,7 +31,7 @@ class ObservableResultsViewModel: ObservableObject {
         totalArticles = nil
     }
     
-    func setArticles(_ articles: Articles, count: Int?) {
+    func setArticles(_ articles: [Article], count: Int?) {
         DispatchQueue.main.async {
             self.isLoading = false
             self.requestError = nil

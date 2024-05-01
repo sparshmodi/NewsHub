@@ -7,17 +7,17 @@
 
 struct SourcesResponse: Codable {
     let status: String
-    let sources: Sources
+    let sources: [Source]
 }
 
 struct TopHeadlinesResponse: Codable {
     let status: String
     let totalResults: Int?
-    let articles: Articles
+    let articles: [Article]
 }
 
 struct EverythingResponse: Codable {
     let status: String
     let totalResults: Int?
-    let articles: Articles
+    let articles: [Article]
 }

@@ -11,8 +11,6 @@ import SwiftUI
 struct NewsHubApp: App {
     @StateObject var homeViewModel = HomeViewModel()
     
-    init() {  }
-    
     var body: some Scene {
         WindowGroup {
             HomeView(viewModel: homeViewModel)

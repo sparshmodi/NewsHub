@@ -6,7 +6,6 @@
 //
 
 import Combine
-import Foundation
 
 final class HeadlinesViewModel: ObservableResultsViewModel {
     @Published var selectedCategory: Category? = .general

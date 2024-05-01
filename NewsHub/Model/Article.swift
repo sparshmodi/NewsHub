@@ -7,8 +7,6 @@
 
 import Foundation
 
-typealias Articles = [Article]
-
 struct Article: Codable, Identifiable, Equatable {
     let id: UUID
     let source: ArticleSource
@@ -17,7 +15,6 @@ struct Article: Codable, Identifiable, Equatable {
     let description: String?
     let url: String
     let urlToImage: String?
-    let publishedAt: String?
     let content: String?
     
     init(from decoder: Decoder) throws {
@@ -29,8 +26,27 @@ struct Article: Codable, Identifiable, Equatable {
         self.description = try container.decodeIfPresent(String.self, forKey: .description)
         self.url = try container.decode(String.self, forKey: .url)
         self.urlToImage = try container.decodeIfPresent(String.self, forKey: .urlToImage)
-        self.publishedAt = try container.decodeIfPresent(String.self, forKey: .publishedAt)
         self.content = try container.decodeIfPresent(String.self, forKey: .content)
+    }
+    
+    init(
+        id: UUID,
+        source: ArticleSource,
+        author: String?,
+        title: String,
+        description: String?,
+        url: String,
+        urlToImage: String?,
+        content: String?
+    ) {
+        self.id = id
+        self.source = source
+        self.author = author
+        self.title = title
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
+        self.content = content
     }
     
     var titleToDisplay: String {

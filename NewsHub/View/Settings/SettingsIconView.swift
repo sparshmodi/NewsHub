@@ -25,6 +25,6 @@ struct SettingsIconView: View {
     }
 }
 
-//#Preview {
-//    SettingsIconView()
-//}
+#Preview {
+    SettingsIconView(shouldShowSettings: .constant(false))
+}

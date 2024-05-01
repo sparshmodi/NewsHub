@@ -18,6 +18,6 @@ struct ErrorView: View {
     }
 }
 
-//#Preview {
-//    ErrorView(error: nil)
-//}
+#Preview {
+    ErrorView(error: NSError(domain: "test", code: 12))
+}

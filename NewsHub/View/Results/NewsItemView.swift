@@ -69,20 +69,21 @@ struct NewsItemView: View {
     }
 }
 
-//#Preview {
-//    NewsItemView(
-//        article: .init(
-//            source: .init(
-//                id: "test",
-//                name: "testName"),
-//            author: "test",
-//            title: "Title",
-//            description: "Description",
-//            url: "https://www.google.com/",
-//            urlToImage: "https://picsum.photos/536/354",
-//            publishedAt: "asdf",
-//            content: "asdf"
-//        ),
-//        isShowingOverlay:
-//    )
-//}
+#Preview {
+    NewsItemView(
+        article: .init(
+            id: .init(),
+            source: .init(
+                id: "test",
+                name: "testName"),
+            author: "test",
+            title: "Title",
+            description: "Description",
+            url: "https://www.google.com/",
+            urlToImage: "https://picsum.photos/536/354",
+            content: "asdf"
+        ),
+        overlayViewModel: .init(),
+        tappedArticle: .constant(nil)
+    )
+}

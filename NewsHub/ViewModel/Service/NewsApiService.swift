@@ -114,7 +114,7 @@ class NewsApiService {
     
     public func fetchSources(
         category: Category? = nil,
-        completion: @escaping (Result<Sources?, Never>) -> Void
+        completion: @escaping (Result<[Source]?, Never>) -> Void
     ) {
         let sourceUrl = apiBaseUrl.appending(path: "v2/top-headlines/sources")
         var parameters: [URLQueryItem] = []

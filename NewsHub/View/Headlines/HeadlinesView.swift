@@ -40,6 +40,6 @@ struct HeadlinesView: View {
     }
 }
 
-//#Preview {
-//    HeadlinesView()
-//}
+#Preview {
+    HeadlinesView(viewModel: .init())
+}

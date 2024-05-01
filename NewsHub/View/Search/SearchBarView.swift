@@ -47,6 +47,6 @@ struct SearchBarView: View {
     }
 }
 
-//#Preview {
-//    SearchBarView()
-//}
+#Preview {
+    SearchBarView(viewModel: .init(), shouldShowSearchResults: .constant(false))
+}

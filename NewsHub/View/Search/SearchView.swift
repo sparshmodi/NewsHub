@@ -20,6 +20,6 @@ struct SearchView: View {
     }
 }
 
-//#Preview {
-//    SearchView()
-//}
+#Preview {
+    SearchView(viewModel: .init(), shouldShowSearchResults: .constant(false))
+}
